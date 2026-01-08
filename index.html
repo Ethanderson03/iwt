@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT - Interstate Waste Technologies | Turning Garbage Into Power</title>
+    <meta name="description" content="Interstate Waste Technologies converts municipal waste into synthetic natural gas using proven Thermoselect gasification technology. Powering AI data centers with clean energy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4A055;
+            --gold-light: #E8C48A;
+            --gold-dark: #B8863D;
+            --black: #1A1A1A;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-600: #525252;
+            --gray-800: #262626;
+            --green: #4ADE80;
+            --red: #F87171;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--black);
+        }
+
+        .logo-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-square {
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+        }
+
+        .logo-square.white {
+            background: var(--white);
+            border: 1px solid var(--gold);
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 2px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 24px;
+            height: 2px;
+            background: var(--black);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 50%, #C4924A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 40%),
+                radial-gradient(circle at 40% 40%, rgba(0,0,0,0.05) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        .hero-bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .hero-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .hero-shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .hero-shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            right: 15%;
+            animation-delay: -5s;
+            animation-duration: 20s;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        .hero-shape:nth-child(4) {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            right: 25%;
+            animation-delay: -7s;
+            animation-duration: 18s;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-shape:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            bottom: 30%;
+            right: 10%;
+            animation-delay: -3s;
+            animation-duration: 22s;
+            background: rgba(0, 0, 0, 0.06);
+        }
+
+        .hero-shape:nth-child(6) {
+            width: 50px;
+            height: 50px;
+            top: 40%;
+            left: 5%;
+            animation-delay: -12s;
+            animation-duration: 28s;
+        }
+
+        .hero-shape:nth-child(7) {
+            width: 90px;
+            height: 90px;
+            bottom: 10%;
+            left: 40%;
+            animation-delay: -8s;
+            animation-duration: 24s;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-shape:nth-child(8) {
+            width: 45px;
+            height: 45px;
+            top: 15%;
+            left: 60%;
+            animation-delay: -15s;
+            animation-duration: 26s;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translate(30px, -30px) rotate(5deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(-3deg);
+                opacity: 0.5;
+            }
+            75% {
+                transform: translate(15px, 15px) rotate(2deg);
+                opacity: 0.7;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-logo-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-logo-icon .logo-row {
+            display: flex;
+            gap: 4px;
+        }
+
+        .hero-logo-icon .logo-square {
+            width: 24px;
+            height: 24px;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            color: var(--black);
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 500;
+            color: var(--black);
+            margin-top: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--black);
+            font-size: 0.8rem;
+            font-weight: 500;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--white);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .chart-container {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .chart-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .chart-subtitle {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-bottom: 2rem;
+        }
+
+        .chart {
+            height: 280px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0 0.5rem 2.5rem;
+            border-bottom: 2px solid var(--gray-200);
+            position: relative;
+        }
+
+        .chart-bar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .chart-bar {
+            width: 100%;
+            max-width: 45px;
+            height: 0;
+            background: linear-gradient(to top, var(--gold), var(--gold-light));
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            transition: height 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-value {
+            position: absolute;
+            top: -1.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--black);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            white-space: nowrap;
+        }
+
+        .chart-bar.animated .chart-value {
+            opacity: 1;
+        }
+
+        .chart-year {
+            font-size: 0.7rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .stat-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .stat-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--black);
+        }
+
+        .stat-content h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-content p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .solution .section-title {
+            color: var(--white);
+        }
+
+        .solution .section-subtitle {
+            color: var(--gray-200);
+        }
+
+        .flow-diagram {
+            display: grid;
+            grid-template-columns: 1fr auto 1.2fr auto 1fr;
+            gap: 0.75rem;
+            align-items: stretch;
+            margin-top: 3rem;
+        }
+
+        .flow-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flow-box.highlight {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--black);
+        }
+
+        .flow-box h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-box p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .flow-box.highlight p {
+            opacity: 0.9;
+        }
+
+        .flow-arrow {
+            font-size: 1.75rem;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .flow-diagram {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .flow-arrow {
+                justify-content: center;
+                transform: rotate(90deg);
+                padding: 0.5rem 0;
+            }
+        }
+
+        .flow-label {
+            font-size: 0.75rem;
+            color: var(--gray-200);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .solution-feature {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .solution-feature h4 {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-feature p {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .modular-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modular-section h3 {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .modular-section > p {
+            color: var(--gray-300);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modular-units {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .modular-unit {
+            background: var(--gray-800);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1/1;
+        }
+
+        .modular-unit img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modular-label {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .modular-plus {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 300;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .solution-features {
+                grid-template-columns: 1fr;
+            }
+            .modular-units {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            .modular-plus {
+                transform: rotate(90deg);
+                padding: 0.5rem 0;
+            }
+        }
+
+        /* Science Section - Process Timeline */
+        .process-timeline {
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-content p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .step-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .step-tags span {
+            background: var(--gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .step-tags.gold span {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .step-callout {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--gold);
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .step-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .step-stat {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            margin-top: 0.25rem;
+        }
+
+        .step-outputs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .output-group {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .output-group h5 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .output-group ul {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .process-step {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 1.25rem;
+            }
+            .step-stats {
+                grid-template-columns: 1fr;
+            }
+            .step-outputs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Technology Section */
+        .technology {
+            background: var(--gray-50);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .tech-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .tech-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tech-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .tech-badge.yes {
+            background: rgba(74, 222, 128, 0.2);
+            color: #16a34a;
+        }
+
+        .tech-badge.no {
+            background: rgba(248, 113, 113, 0.2);
+            color: #dc2626;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            background: var(--white);
+        }
+
+        .comparison-table {
+            margin-top: 3rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: var(--gold);
+            color: var(--black);
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.9rem;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--gray-50);
+        }
+
+        .check {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .cross {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* Japan Operations */
+        .operations {
+            background: var(--gray-50);
+        }
+
+        .operations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .operation-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .operation-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 160, 85, 0.15);
+        }
+
+        .operation-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .operation-card h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .operation-stats {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .operation-stat {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .operation-stat span:first-child {
+            color: var(--gray-600);
+        }
+
+        .operation-stat span:last-child {
+            font-weight: 600;
+        }
+
+        /* Pipeline Section */
+        .pipeline {
+            background: var(--white);
+        }
+
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pipeline-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .pipeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pipeline-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pipeline-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pipeline-image::after {
+            content: 'Architectural Render';
+            position: absolute;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            font-size: 0.65rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .pipeline-image svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .pipeline-image .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pipeline-image img + svg,
+        .pipeline-image img:not([src=""]) ~ .placeholder {
+            display: none;
+        }
+
+        .pipeline-content {
+            padding: 1.5rem;
+        }
+
+        .pipeline-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .pipeline-content p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--gray-50);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 160, 85, 0.15);
+        }
+
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .product-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--gray-50);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-photo {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .team-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-info .role {
+            font-size: 0.8rem;
+            color: var(--gold-dark);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-info p {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
+        /* Partners Section */
+        .partners {
+            background: var(--gray-50);
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .partner-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-card .role {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .partner-card p {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .cta h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            color: var(--gray-200);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+            line-height: 1.6;
+        }
+
+        .footer-col h5 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: var(--gray-200);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--gray-200);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .problem-grid,
+            .flow-diagram {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .flow-diagram {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .pipeline-grid,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-photo {
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <div class="logo-square"></div>
+                    <div class="logo-row">
+                        <div class="logo-square"></div>
+                        <div class="logo-square white"></div>
+                    </div>
+                </div>
+                <span class="logo-text">IWT</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#operations">Operations</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get In Touch</a>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="hero-logo-icon">
+                    <div class="logo-square"></div>
+                    <div class="logo-row">
+                        <div class="logo-square"></div>
+                        <div class="logo-square white"></div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="hero-title">IWT</h1>
+            <p class="hero-tagline">Turning Garbage Into Power</p>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-label">The Challenge</div>
+            <h2 class="section-title fade-in">Power is the next bottleneck in the AI race</h2>
+            <p class="section-subtitle fade-in">Electricity demand from data centers is projected to more than double by 2030, driven heavily by AI workloads. Grid connections take 5-7 years. AI is happening now.</p>
+
+            <div class="problem-grid">
+                <div class="chart-container slide-in-left">
+                    <h4 class="chart-title">US Data Center Electricity Demand</h4>
+                    <p class="chart-subtitle">Terawatt-Hours (2023-2030)</p>
+                    <div class="chart">
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="55">
+                                <span class="chart-value">147</span>
+                            </div>
+                            <span class="chart-year">2023</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="70">
+                                <span class="chart-value">178</span>
+                            </div>
+                            <span class="chart-year">2024</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="90">
+                                <span class="chart-value">224</span>
+                            </div>
+                            <span class="chart-year">2025</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="115">
+                                <span class="chart-value">292</span>
+                            </div>
+                            <span class="chart-year">2026</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="145">
+                                <span class="chart-value">371</span>
+                            </div>
+                            <span class="chart-year">2027</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="175">
+                                <span class="chart-value">450</span>
+                            </div>
+                            <span class="chart-year">2028</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="200">
+                                <span class="chart-value">513</span>
+                            </div>
+                            <span class="chart-year">2029</span>
+                        </div>
+                        <div class="chart-bar-container">
+                            <div class="chart-bar" data-height="235">
+                                <span class="chart-value">606</span>
+                            </div>
+                            <span class="chart-year">2030</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--gray-600); margin-top: 1rem;">Source: McKinsey (2024): "The Data Center Boom"</p>
+                </div>
+
+                <div class="stat-cards slide-in-right">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Natural Gas Dominates</h4>
+                            <p>Nearly all new AI data centers use behind-the-meter natural gas power to skip the 5-7 year grid connection wait.</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h4>Major Players On Board</h4>
+                            <p>xAI Colossus, Oracle/OpenAI Stargate, Crusoe/Engine No.1, and Brookfield are all betting on natural gas.</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h4>5-7 Years to Grid</h4>
+                            <p>Traditional grid connections take years. AI companies need power now, not in 2030.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-label">Our Solution</div>
+            <h2 class="section-title fade-in">Turning garbage into power for AI</h2>
+            <p class="section-subtitle fade-in">IWT's patented Thermoselect technology converts 100% of municipal waste into synthetic natural gas—solving the waste crisis while powering the AI revolution.</p>
+
+            <div class="flow-diagram fade-in">
+                <div class="flow-box">
+                    <h4>Municipalities</h4>
+                    <p>Pay us to take their waste</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box highlight">
+                    <h4>IWT Gasification</h4>
+                    <p>100% conversion to syngas</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                    <h4>Data Centers</h4>
+                    <p>Pay us for clean energy</p>
+                </div>
+            </div>
+
+            <div class="solution-features fade-in">
+                <div class="solution-feature">
+                    <h4>30+ Years Proven</h4>
+                    <p>Industrial-scale Thermoselect technology operating since 1990</p>
+                </div>
+                <div class="solution-feature">
+                    <h4>100% Conversion</h4>
+                    <p>No ash, no landfill required. Complete waste-to-energy transformation</p>
+                </div>
+                <div class="solution-feature">
+                    <h4>Zero Emissions</h4>
+                    <p>No dioxins, no wastewater discharge, negligible air emissions</p>
+                </div>
+            </div>
+
+            <div class="modular-section fade-in">
+                <h3>Modular & Scalable Design</h3>
+                <p>IWT plants scale infinitely alongside data center buildouts. Add capacity as demand grows.</p>
+                <div class="modular-units">
+                    <div class="modular-unit">
+                        <img src="images/modular-plant-1.png" alt="Base facility" onerror="this.style.display='none';">
+                        <div class="modular-label">Base Unit</div>
+                    </div>
+                    <span class="modular-plus">+</span>
+                    <div class="modular-unit">
+                        <img src="images/modular-plant-2.png" alt="Expansion module" onerror="this.style.display='none';">
+                        <div class="modular-label">Module 2</div>
+                    </div>
+                    <span class="modular-plus">+</span>
+                    <div class="modular-unit">
+                        <img src="images/modular-plant-2.png" alt="Additional module" onerror="this.style.display='none';">
+                        <div class="modular-label">Module 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works - Science Section -->
+    <section class="how-it-works" id="how-it-works" style="background: var(--white);">
+        <div class="container">
+            <div class="section-label">The Science</div>
+            <h2 class="section-title fade-in">How Thermoselect Gasification Works</h2>
+            <p class="section-subtitle fade-in">A closed-loop process combining pyrolysis and high-temperature gasification to convert 100% of waste into energy and recyclable products.</p>
+
+            <!-- Process Steps -->
+            <div class="process-timeline">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Waste Reception & Compression</h4>
+                        <p>Unsorted waste enters an enclosed tipping pit with negative pressure odor control. A hydraulic press compacts waste into dense plugs, removing air pockets and evenly distributing moisture content.</p>
+                        <div class="step-tags">
+                            <span>MSW</span>
+                            <span>Industrial Waste</span>
+                            <span>E-Waste</span>
+                            <span>Sludges</span>
+                            <span>Tires</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Pyrolysis (Degasification)</h4>
+                        <p>Waste plugs enter the degasification channel where radiant heat thermally decomposes organic matter <strong>without oxygen</strong>. This pyrolysis process breaks down waste into steam, carbon char, and preliminary synthesis gas.</p>
+                        <div class="step-callout">
+                            <strong>Key:</strong> No combustion occurs. Pyrolysis uses only thermal energy, preventing harmful emissions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>High-Temperature Gasification</h4>
+                        <p>Carbon char enters the high-temperature chamber where controlled amounts of <strong>95% pure oxygen</strong> transform remaining material into clean synthesis gas. Glass and metals melt for collection.</p>
+                        <div class="step-stats">
+                            <div class="step-stat">
+                                <div class="stat-value">2,000°C</div>
+                                <div class="stat-label">Chamber Temp</div>
+                            </div>
+                            <div class="step-stat">
+                                <div class="stat-value">1,200°C</div>
+                                <div class="stat-label">Gas Exit Temp</div>
+                            </div>
+                            <div class="step-stat">
+                                <div class="stat-value">95%</div>
+                                <div class="stat-label">Oxygen Purity</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Shock Quench & Material Recovery</h4>
+                        <p>Molten material undergoes rapid shock quenching, cooling from 1,200°C to below <strong>70°C in under one second</strong>. This produces vitrified aggregate material and recoverable metal pellets.</p>
+                        <div class="step-callout">
+                            <strong>Output:</strong> Sand-like vitrified aggregate (for construction) + pure metal pellets for resale. Zero ash, zero landfill.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Gas & Water Cleaning</h4>
+                        <p>Synthesis gas passes through a multi-stage cleaning system that removes particulates and sulfur. The closed-loop water system extracts metals as zinc concentrate and separates chlorides as industrial-grade salts.</p>
+                        <div class="step-outputs">
+                            <div class="output-group">
+                                <h5>Gas Cleaning</h5>
+                                <ul>
+                                    <li>Clean synthesis gas</li>
+                                    <li>Recovered sulfur</li>
+                                </ul>
+                            </div>
+                            <div class="output-group">
+                                <h5>Water Cleaning</h5>
+                                <ul>
+                                    <li>Zinc concentrate</li>
+                                    <li>Industrial salts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Syngas Conversion</h4>
+                        <p>Clean synthesis gas is converted to electricity via gas turbines, or processed through LanzaTech's gas-to-liquid technology to produce sustainable fuels.</p>
+                        <div class="step-tags gold">
+                            <span>Electricity</span>
+                            <span>Ethanol</span>
+                            <span>Hydrogen</span>
+                            <span>Natural Gas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Specs Summary -->
+            <div style="margin-top: 5rem; background: var(--black); border-radius: 20px; padding: 3rem; color: var(--white);">
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 2rem; text-align: center;">Technical Specifications</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">396</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Tons/day per module</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">100%</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Waste converted</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">0</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Emissions/discharge</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">9</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Facilities since 1992</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">&lt;1s</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Shock quench time</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; font-weight: 800; color: var(--gold);">5</div>
+                        <div style="font-size: 0.85rem; color: var(--gray-200);">Recyclable byproducts</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Environmental Credits -->
+            <div style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div class="fade-in" style="background: var(--gray-50); border-radius: 16px; padding: 2rem; border: 1px solid var(--gray-200);">
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--green);">&#10003;</span> California LCFS Credits
+                    </h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--gold); margin-bottom: 0.25rem;">385,000</p>
+                    <p style="font-size: 0.85rem; color: var(--gray-600);">Carbon Intensity: -3 (vs. 2020 target of 88)</p>
+                </div>
+                <div class="fade-in" style="background: var(--gray-50); border-radius: 16px; padding: 2rem; border: 1px solid var(--gray-200);">
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--green);">&#10003;</span> Cellulosic RINs
+                    </h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--gold); margin-bottom: 0.25rem;">48 Million</p>
+                    <p style="font-size: 0.85rem; color: var(--gray-600);">EPA Clean Air Act compliance credits</p>
+                </div>
+                <div class="fade-in" style="background: var(--gray-50); border-radius: 16px; padding: 2rem; border: 1px solid var(--gray-200);">
+                    <h4 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--green);">&#10003;</span> Biogas Enhancement
+                    </h4>
+                    <p style="font-size: 2rem; font-weight: 800; color: var(--gold); margin-bottom: 0.25rem;">33%</p>
+                    <p style="font-size: 0.85rem; color: var(--gray-600);">Reduction in natural gas requirements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Comparison -->
+    <section class="comparison" id="technology">
+        <div class="container">
+            <div class="section-label">Competitive Edge</div>
+            <h2 class="section-title fade-in">IWT has a clear advantage over other waste-to-energy technologies</h2>
+
+            <div class="comparison-table fade-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>IWT</th>
+                            <th>Others</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Requires waste pre-treating</td>
+                            <td class="check">NO</td>
+                            <td class="cross">YES</td>
+                        </tr>
+                        <tr>
+                            <td>Requires waste sorting</td>
+                            <td class="check">NO</td>
+                            <td class="cross">YES</td>
+                        </tr>
+                        <tr>
+                            <td>Chemically pollutive</td>
+                            <td class="check">NO</td>
+                            <td class="cross">YES</td>
+                        </tr>
+                        <tr>
+                            <td>Converts +99% of the waste</td>
+                            <td class="check">YES</td>
+                            <td class="cross">NO</td>
+                        </tr>
+                        <tr>
+                            <td>Produces ash requiring landfill</td>
+                            <td class="check">NO</td>
+                            <td class="cross">YES</td>
+                        </tr>
+                        <tr>
+                            <td>Immediate deployability</td>
+                            <td class="check">YES</td>
+                            <td class="cross">NO</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tech-grid" style="margin-top: 4rem;">
+                <div class="tech-card fade-in">
+                    <h4>
+                        <span class="tech-badge yes">Advantage</span>
+                        Modular & Scalable
+                    </h4>
+                    <p>IWT plants are modular and can scale up behind the meter alongside data center buildouts. Technology scales infinitely to meet demand.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <h4>
+                        <span class="tech-badge yes">Advantage</span>
+                        Faster Deployment
+                    </h4>
+                    <p>By colocating with data centers, IWT can speed up time to deployment by years compared to traditional grid connections.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <h4>
+                        <span class="tech-badge yes">Advantage</span>
+                        Dual Revenue Streams
+                    </h4>
+                    <p>Get paid to take waste AND sell the energy produced. Two revenue sources from one process.</p>
+                </div>
+                <div class="tech-card fade-in">
+                    <h4>
+                        <span class="tech-badge yes">Advantage</span>
+                        Community Compatible
+                    </h4>
+                    <p>Operates cleanly in populated areas, meeting the most stringent environmental standards worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Japan Operations -->
+    <section class="operations" id="operations">
+        <div class="container">
+            <div class="section-label">Proven at Scale</div>
+            <h2 class="section-title fade-in">Already operating at commercial scale across 7 sites in Japan</h2>
+            <p class="section-subtitle fade-in">Our technology isn't experimental. It's battle-tested and commercially proven for over three decades.</p>
+
+            <div class="operations-grid">
+                <div class="operation-card fade-in">
+                    <h4>Chiba</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Industrial</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>300 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>15 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Kurashiki</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Industrial</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>555 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>30 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Yori</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Industrial</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>400 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>18 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Nagasaki</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Municipal</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>300 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>10 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Mutsu</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Municipal</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>140 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>5 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Tokushima</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Municipal</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>120 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>5 MW</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="operation-card fade-in">
+                    <h4>Osaka</h4>
+                    <div class="operation-stats">
+                        <div class="operation-stat">
+                            <span>Waste Type</span>
+                            <span>Industrial</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Processing</span>
+                            <span>95 tons/day</span>
+                        </div>
+                        <div class="operation-stat">
+                            <span>Output</span>
+                            <span>4 MW</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 3rem; justify-content: center; margin-top: 4rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--gold);">1,910</div>
+                    <div style="font-size: 0.9rem; color: var(--gray-600);">Tons processed daily</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--gold);">87 MW</div>
+                    <div style="font-size: 0.9rem; color: var(--gray-600);">Total electricity output</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: var(--gold);">30+</div>
+                    <div style="font-size: 0.9rem; color: var(--gray-600);">Years of operation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Section -->
+    <section class="pipeline">
+        <div class="container">
+            <div class="section-label">Project Pipeline</div>
+            <h2 class="section-title fade-in">Late stage pipeline overview</h2>
+            <p class="section-subtitle fade-in">Strategic facilities across North America ready for development.</p>
+
+            <div class="pipeline-grid">
+                <div class="pipeline-card fade-in">
+                    <div class="pipeline-image">
+                        <img src="images/pipeline-milwaukee.png" alt="Milwaukee facility render" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder" style="display:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pipeline-content">
+                        <h4>Milwaukee, Wisconsin</h4>
+                        <p>5-line system with integrated data center co-location capability and renewable energy partnership.</p>
+                    </div>
+                </div>
+                <div class="pipeline-card fade-in">
+                    <div class="pipeline-image">
+                        <img src="images/pipeline-virginia.png" alt="Virginia facility render" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder" style="display:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pipeline-content">
+                        <h4>Loudoun County, Virginia</h4>
+                        <p>30 MW facility with NOVEC partnership for renewable electricity and tipping fee revenue.</p>
+                    </div>
+                </div>
+                <div class="pipeline-card fade-in">
+                    <div class="pipeline-image">
+                        <img src="images/pipeline-louisiana.png" alt="Louisiana facility render" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder" style="display:none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pipeline-content">
+                        <h4>Plaquemines Parish, Louisiana</h4>
+                        <p>Strategic location for petrochemical integration and product sales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <div class="section-label">Beyond SynGas</div>
+            <h2 class="section-title fade-in">Multiple product pathways</h2>
+            <p class="section-subtitle fade-in">Our technology can adapt syngas production to various products depending on market economics.</p>
+
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-icon" style="overflow: hidden;">
+                        <img src="images/product-jet-fuel.png" alt="Jet Fuel" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none; width: 40px; height: 40px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h4>Jet Fuel</h4>
+                    <p>Sustainable aviation fuel for airlines</p>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-icon" style="overflow: hidden;">
+                        <img src="images/product-ethanol.png" alt="Ethanol" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none; width: 40px; height: 40px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <h4>Ethanol</h4>
+                    <p>EPA-mandated fuel blending</p>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-icon" style="overflow: hidden;">
+                        <img src="images/product-meg.png" alt="MEG" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none; width: 40px; height: 40px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                    </div>
+                    <h4>MEG</h4>
+                    <p>Monoethylene Glycol for plastics</p>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-icon" style="overflow: hidden;">
+                        <img src="images/product-pet.png" alt="PET" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none; width: 40px; height: 40px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                    </div>
+                    <h4>PET</h4>
+                    <p>Polyethylene Terephthalate for packaging</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-label">Leadership</div>
+            <h2 class="section-title fade-in">Experienced team with 200+ years combined expertise</h2>
+
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-photo"></div>
+                    <div class="team-info">
+                        <h4>Brian Wilson</h4>
+                        <p class="role">Chairman & CEO</p>
+                        <p>27+ years building large-scale infrastructure. Leading IWT's global expansion and capital deployment strategy.</p>
+                    </div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-photo"></div>
+                    <div class="team-info">
+                        <h4>Francis Campbell</h4>
+                        <p class="role">President</p>
+                        <p>Licensed PE with 40+ years delivering $4B+ in waste management and power generation projects.</p>
+                    </div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-photo"></div>
+                    <div class="team-info">
+                        <h4>Brian Egnatz</h4>
+                        <p class="role">Director of Development</p>
+                        <p>Former CIO at JPMorgan, HSBC, and Milepost Capital. 35+ years in institutional investment and capital markets.</p>
+                    </div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-photo"></div>
+                    <div class="team-info">
+                        <h4>Charles Botwick</h4>
+                        <p class="role">CDO & Global Operations</p>
+                        <p>40+ years executing infrastructure projects in 50+ countries. Fluent in 11 languages.</p>
+                    </div>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-photo"></div>
+                    <div class="team-info">
+                        <h4>Jose De Lemos</h4>
+                        <p class="role">Director & Senior Advisor</p>
+                        <p>30+ years as CEO/CFO in waste-to-energy and renewable fuels. Former CEO of NASDAQ-listed Alpine Management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="section-label">Strategic Partners</div>
+            <h2 class="section-title fade-in">World-class execution partners</h2>
+
+            <div class="partners-grid">
+                <div class="partner-card fade-in">
+                    <h4>AECOM</h4>
+                    <p class="role">Engineering & Design</p>
+                    <p>Front-end engineering, detailed design, site optimization, and regulatory support from one of the world's premier engineering firms.</p>
+                </div>
+                <div class="partner-card fade-in">
+                    <h4>NAES</h4>
+                    <p class="role">Operations & Workforce</p>
+                    <p>Operational training, plant management, and skilled workforce development ensuring reliable, profitable operations.</p>
+                </div>
+                <div class="partner-card fade-in">
+                    <h4>SATEC Steel</h4>
+                    <p class="role">Fabrication & Construction</p>
+                    <p>Equipment fabrication, structural steel work, and construction execution with deep thermal processing expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to turn garbage into power?</h2>
+            <p>Join us in transforming waste management and powering the AI revolution with clean, sustainable energy.</p>
+            <div class="cta-buttons">
+                <a href="mailto:info@iwtonline.com" class="btn btn-primary">
+                    Contact Us
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+                <a href="#problem" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-square"></div>
+                        <div class="logo-row">
+                            <div class="logo-square"></div>
+                            <div class="logo-square white" style="border-color: var(--gold);"></div>
+                        </div>
+                    </div>
+                    <span class="logo-text">IWT</span>
+                </a>
+                <p style="margin-top: 1rem;">Interstate Waste Technologies is transforming waste management through proven Thermoselect gasification technology. Turning garbage into power since 1990.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#problem">The Problem</a></li>
+                    <li><a href="#solution">Our Solution</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#operations">Operations</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Projects</h5>
+                <ul>
+                    <li><a href="#">Milwaukee, WI</a></li>
+                    <li><a href="#">Loudoun County, VA</a></li>
+                    <li><a href="#">Plaquemines Parish, LA</a></li>
+                    <li><a href="#">Japan Operations</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@iwtonline.com">info@iwtonline.com</a></li>
+                    <li><a href="https://iwtonline.com">iwtonline.com</a></li>
+                    <li>Middleburg, Virginia</li>
+                    <li>West Chester, Pennsylvania</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Interstate Waste Technologies. All rights reserved.</p>
+            <p>Turning Garbage Into Power</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate chart bars on scroll
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.chart-bar');
+                    bars.forEach((bar, index) => {
+                        const targetHeight = bar.dataset.height;
+                        setTimeout(() => {
+                            bar.style.height = targetHeight + 'px';
+                            bar.classList.add('animated');
+                        }, index * 120);
+                    });
+                    // Unobserve after animation triggers
+                    chartObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const chartContainer = document.querySelector('.chart');
+        if (chartContainer) {
+            chartObserver.observe(chartContainer);
+        }
+
+        // Animate numbers counting up
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statElements = entry.target.querySelectorAll('[data-count]');
+                    statElements.forEach(el => {
+                        const target = parseInt(el.dataset.count);
+                        animateCounter(el, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Counter animation for stats
+        function animateCounter(el, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 30);
+        }
+
+    </script>
+</body>
+</html>
