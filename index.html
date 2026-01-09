@@ -1219,8 +1219,29 @@
             border: 1px solid var(--gray-200);
         }
 
+        .partner-logo {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-logo img {
+            max-height: 100%;
+            max-width: 160px;
+            object-fit: contain;
+        }
+
+        .partner-logo-text {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
         .partner-card h4 {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -2257,17 +2278,23 @@
 
             <div class="partners-grid">
                 <div class="partner-card fade-in">
-                    <h4>AECOM</h4>
+                    <div class="partner-logo">
+                        <span class="partner-logo-text">AECOM</span>
+                    </div>
                     <p class="role">Engineering & Design</p>
                     <p>Front-end engineering, detailed design, site optimization, and regulatory support from one of the world's premier engineering firms.</p>
                 </div>
                 <div class="partner-card fade-in">
-                    <h4>NAES</h4>
+                    <div class="partner-logo">
+                        <span class="partner-logo-text">NAES</span>
+                    </div>
                     <p class="role">Operations & Workforce</p>
                     <p>Operational training, plant management, and skilled workforce development ensuring reliable, profitable operations.</p>
                 </div>
                 <div class="partner-card fade-in">
-                    <h4>SATEC Steel</h4>
+                    <div class="partner-logo">
+                        <span class="partner-logo-text">SATEC</span>
+                    </div>
                     <p class="role">Fabrication & Construction</p>
                     <p>Equipment fabrication, structural steel work, and construction execution with deep thermal processing expertise.</p>
                 </div>
